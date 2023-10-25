@@ -5,12 +5,13 @@ from sqlalchemy import text
 
 # восстановление БД из архива
 # C:\Users\Viktor\Downloads>pg_restore -d demo dvdrental.tar
+# Grant wizard (Мастер назначения прав)
 
 # установка библиотек
 # pip install sqlalchemy psycopg2-binary
 
 # создаем engine
-# типCубд-пользователь-пароль-url-база
+# типCубд://пользователь:пароль@url/база
 
 engine = create_engine("postgresql+psycopg2://demo:demo@localhost:5432/demo")
 
@@ -24,7 +25,7 @@ connection = engine.connect()
 # column_ls = connection.execute(text("""
 #     SELECT COLUMN_NAME
 #         FROM INFORMATION_SCHEMA.COLUMNS
-#         WHERE table_name = 'film'
+#         WHERE table_name = 'film';
 # """))
 # print(list(column_ls))
 
