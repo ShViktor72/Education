@@ -1,13 +1,7 @@
 # Материалы по модулям:
-## Проектирование программного обеспечения (Software design)
+## Разработка десктопных приложений с использованием языков программирования (C#)
 
-## Основы компьютерных сетей. (Networks)
-
-## Практика по электронике и микропроцессорной технике
-
-## Практика по программированию
-
-![N|Solid](https://helpset.ru/wp-content/uploads/2022/12/01.jpg)
+![N|Solid](https://habrastorage.org/getpro/habr/upload_files/48f/edb/eec/48fedbeec911b0beaf9ba19d8b907892.jpeg)
 
 ## colledge20education23@gmail.com
 
