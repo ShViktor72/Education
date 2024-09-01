@@ -1,0 +1,5 @@
+use shop;
+
+SELECT * FROM product;
+SELECT count(*) FROM product where product.price < 10000;
+SELECT sum(price) as total_price, min(price) as min_price, max(price) as max_price FROM product;
