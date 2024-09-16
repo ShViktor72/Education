@@ -11,41 +11,37 @@ connection = pymysql.connect(
     cursorclass=pymysql.cursors.DictCursor
 )
 
-# with connection.cursor() as cursor:
-#     select_all_rows = "SELECT * FROM `users`"
-#     cursor.execute(select_all_rows)
-#     rows = cursor.fetchall()
-#     for row in rows:
-#         print(row)
-#     print("#" * 20)
-
 start_time = time.time()
 
 # Генерация списка имен
 faker = Faker("ru_RU")
-names = [faker.name() for i in range(100)]
+names = [faker.name() for i in range(100000)]
 
 names_surnames_list = []
 for user in names:
-    names_surnames_list.append([user.split()[0], user.split()[1]])
+    split_name = user.split()
+    names_surnames_list.append([split_name[0], split_name[1]])  # Имя и Фамилия
 
-# Начало транзакции
-with connection.cursor() as cursor:
-    cursor.execute("START TRANSACTION")
+try:
+    with connection.cursor() as cursor:
+        sql = "INSERT INTO users (name, surname) VALUES (%s, %s)"
+        values = [(user_data[0], user_data[1]) for user_data in names_surnames_list]
+        cursor.executemany(sql, values)
 
-    # Формирование SQL-запроса для массовой вставки
-    sql = "INSERT INTO users (name, surname) VALUES (%s, %s)"
-    values = [(user_data[0], user_data[1]) for user_data in names_surnames_list]
-    cursor.executemany(sql, values)
+    # Подтверждение транзакции
+    connection.commit()
 
-    # Завершение транзакции
-    cursor.execute("COMMIT")
+except pymysql.MySQLError as err:
+    print(f"Ошибка при выполнении транзакции: {err}")
+    connection.rollback()
 
-# Закрытие соединения
-connection.close()
+finally:
+    # Закрытие соединения
+    connection.close()
 
 end_time = time.time()
 print("Время выполнения:", end_time - start_time, "секунд")
+
 
 """
 %s	Строка	Универсальный заполнитель для строк.
