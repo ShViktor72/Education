@@ -1,0 +1,145 @@
+version: '2'
+
+services:
+  namenode:
+    image: bde2020/hadoop-namenode:2.0.0-hadoop2.7.4-java8
+    container_name: namenode
+    restart: on-failure
+    volumes:
+      - hadoop_namenode:/hadoop/dfs/name
+      #- /var/shared/hdfs:/shared/  # replace first item by your shared folder for namenode files
+    environment:
+      - CLUSTER_NAME=test
+    env_file:
+      - ./hadoop-hive.env
+    ports:
+      - 50070:50070
+      - 8020:8020
+
+  datanode1:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
+    container_name: datanode1
+    restart: on-failure
+    depends_on:
+      - namenode
+    volumes:
+      - hadoop_datanode1:/hadoop/dfs/data
+    env_file:
+      - ./hadoop-hive.env
+    ports:
+      - 50075:50075
+
+  datanode2:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
+    container_name: datanode2
+    restart: on-failure
+    depends_on:
+      - namenode
+    volumes:
+      - hadoop_datanode2:/hadoop/dfs/data
+    env_file:
+      - ./hadoop-hive.env
+    ports:
+      - 50076:50075
+
+  datanode3:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
+    container_name: datanode3
+    restart: on-failure
+    depends_on:
+      - namenode
+    volumes:
+      - hadoop_datanode3:/hadoop/dfs/data
+    env_file:
+      - ./hadoop-hive.env
+    ports:
+      - 50077:50075
+
+
+
+  hive-server:
+    image: bde2020/hive:2.3.2-postgresql-metastore
+    container_name: hive-server
+    restart: on-failure
+    env_file:
+      - ./hadoop-hive.env
+    environment:
+      - HIVE_CORE_CONF_javax_jdo_option_ConnectionURL=jdbc:postgresql://hive-metastore/metastore
+    ports:
+      - 10000:10000
+  hive-metastore:
+    image: bde2020/hive:2.3.2-postgresql-metastore
+    container_name: hive-metastore
+    restart: on-failure
+    env_file:
+      - ./hadoop-hive.env
+    command: /opt/hive/bin/hive --service metastore
+    ports:
+      - 9083:9083
+  hive-metastore-postgresql:
+    image: bde2020/hive-metastore-postgresql:2.3.0
+    restart: on-failure
+
+  spark-master:
+    image: bde2020/spark-master:2.4.5-hadoop2.7
+    container_name: spark-master
+    restart: on-failure
+    ports:
+      - 8080:8080
+      - 7077:7077
+    env_file:
+      - ./hadoop-hive.env
+    depends_on:
+      - hive-server
+    environment:
+      - PYSPARK_PYTHON=python3
+      - PYSPARK_DRIVER_PYTHON=python3
+      - HADOOP_CONF_DIR=/etc/hadoop/conf
+    volumes:
+      #- /var/shared/spark:/shared/  # replace first item by your shared folder for spark files
+      - ./spark_conf/hadoop:/etc/hadoop/conf/
+      - ./spark_conf/hive:/spark/conf/
+  spark-worker:
+    image: bde2020/spark-worker:2.4.5-hadoop2.7
+    container_name: spark-worker
+    restart: on-failure
+    depends_on:
+      - spark-master
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+      - PYSPARK_PYTHON=python3
+      - PYSPARK_DRIVER_PYTHON=python3
+      - HADOOP_CONF_DIR=/etc/hadoop/conf
+    ports:
+      - 8081:8081
+    env_file:
+      - ./hadoop-hive.env
+    volumes:
+      - ./spark_conf/hadoop:/etc/hadoop/conf/
+      - ./spark_conf/hive:/spark/conf/
+
+  jupyter:
+    image: jupyter/pyspark-notebook:spark-2
+    container_name: jupyter
+    restart: on-failure
+    env_file:
+      - ./hadoop-hive.env
+    environment:
+      - PYSPARK_PYTHON=python3
+      - PYSPARK_DRIVER_PYTHON=python3
+      - HADOOP_CONF_DIR=/etc/hadoop/conf
+    ports:
+      - 8888:8888
+    depends_on:
+      - spark-master
+    volumes:
+      - ./spark_conf/hadoop:/etc/hadoop/conf/
+      - ./spark_conf/hive:/usr/local/spark/conf
+      #- ~/jupyter:/home/jovyan/work # replace first item by your shared folder for jupyter files
+    working_dir: /home/jovyan/work
+
+volumes:
+  hadoop_namenode:
+  hadoop_datanode1:
+  hadoop_datanode2:
+  hadoop_datanode3:
