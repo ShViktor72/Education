@@ -7,9 +7,11 @@ https://metanit.com/sharp/tutorial/
 
 
 # Видеоуроки по C#:
-https://youtu.be/MZ0og1DNcCg?list=PL05SB3rBbUsraqiEUeS70RKhVAu97nGeb
+[#XpucT](https://youtu.be/MZ0og1DNcCg?list=PL05SB3rBbUsraqiEUeS70RKhVAu97nGeb)
 
-https://youtu.be/lg_D_1KNBek?list=PLQOaTSbfxUtD6kMmAYc8Fooqya3pjLs1N
+[#SimpleCode](https://youtu.be/lg_D_1KNBek?list=PLQOaTSbfxUtD6kMmAYc8Fooqya3pjLs1N)
+
+[#Школа itProger](https://youtu.be/_8yZYhAkQjQ?list=PLDyJYA6aTY1laYPs6iS-SrYl9DZLVCUKr)
 
 ## Полезные ссылки:
 https://colorpicker.me
