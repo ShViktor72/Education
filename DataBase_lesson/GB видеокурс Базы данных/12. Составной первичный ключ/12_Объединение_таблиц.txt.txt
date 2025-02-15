@@ -1,0 +1,7 @@
+use shop;
+SELECT * FROM product;
+select * from category where id = 1 or id = 3 or id = 2;
+select * from category where id >= 1 and id <=3;
+select * from category where id IN (1, 2, 3);
+
+    

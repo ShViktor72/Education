@@ -1,0 +1,12 @@
+use shop;
+
+select * from category
+	left join product on product.category_id = category.id;
+    
+select * from category
+	left join product on product.category_id = category.id
+    where product.id is null;
+    
+select * from category
+	right join product on product.category_id = category.id
+    where product.id is null;    
