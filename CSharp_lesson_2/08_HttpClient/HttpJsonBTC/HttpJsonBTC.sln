@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpJsonBTC", "HttpJsonBTC\HttpJsonBTC.csproj", "{B8683EAE-CAF3-465C-8B75-4E2A95A55DFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8683EAE-CAF3-465C-8B75-4E2A95A55DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8683EAE-CAF3-465C-8B75-4E2A95A55DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8683EAE-CAF3-465C-8B75-4E2A95A55DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8683EAE-CAF3-465C-8B75-4E2A95A55DFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19204CF7-7D60-4A71-9A23-FF8BB0ABDCF9}
+	EndGlobalSection
+EndGlobal

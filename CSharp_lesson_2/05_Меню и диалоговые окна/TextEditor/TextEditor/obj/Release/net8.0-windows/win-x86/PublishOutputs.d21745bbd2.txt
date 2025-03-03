@@ -1,7 +1,0 @@
-C:\Users\User\Desktop\csarp\TextEditor\TextEditor\bin\Release\net8.0-windows\publish\win-x86\TextEditor.pdb
-C:\Users\User\Desktop\csarp\TextEditor\TextEditor\bin\Release\net8.0-windows\publish\win-x86\D3DCompiler_47_cor3.dll
-C:\Users\User\Desktop\csarp\TextEditor\TextEditor\bin\Release\net8.0-windows\publish\win-x86\PenImc_cor3.dll
-C:\Users\User\Desktop\csarp\TextEditor\TextEditor\bin\Release\net8.0-windows\publish\win-x86\PresentationNative_cor3.dll
-C:\Users\User\Desktop\csarp\TextEditor\TextEditor\bin\Release\net8.0-windows\publish\win-x86\vcruntime140_cor3.dll
-C:\Users\User\Desktop\csarp\TextEditor\TextEditor\bin\Release\net8.0-windows\publish\win-x86\wpfgfx_cor3.dll
-C:\Users\User\Desktop\csarp\TextEditor\TextEditor\bin\Release\net8.0-windows\publish\win-x86\TextEditor.exe
