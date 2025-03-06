@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HttpJsonBTC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+09acbd243aef81a18dbd0ec98aa1a14bc5ff70e3")]
 [assembly: System.Reflection.AssemblyProductAttribute("HttpJsonBTC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HttpJsonBTC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
