@@ -5,9 +5,10 @@ namespace HttpJsonBTC
 {
     public partial class Form1 : Form
     {
-        readonly HttpClient client = new HttpClient();
-        readonly string url = 
-            "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd";
+        static HttpClient client = new HttpClient();
+        static string url =
+            "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD";
+        
         public Form1()
         {
             InitializeComponent();
@@ -15,62 +16,25 @@ namespace HttpJsonBTC
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                txtPrice.Text = "Загрузка...";
-                string json = await client.GetStringAsync(url);
+            // Выполняем GET-запрос
+            var response = await client.GetAsync(url);
 
-                var options = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true,
-                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-                };
+            response.EnsureSuccessStatusCode(); // Убедимся, что запрос успешен
 
-                var response = JsonSerializer.Deserialize<CryptoResponse>(json, options);
-                txtPrice.Text = $"{response?.Bitcoin?.Usd ?? 0m} USD";
-            }
-            catch (HttpRequestException ex)
-            {
-                MessageBox.Show($"Ошибка сети: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtPrice.Text = "Ошибка сети";
-            }
-            catch (JsonException ex)
-            {
-                MessageBox.Show($"Ошибка JSON: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtPrice.Text = "Ошибка данных";
-            }
+            // Читаем ответ как строку
+            string responseBody = await response.Content.ReadAsStringAsync();
+
+            // Десериализуем JSON-ответ в объект
+            var rateData = JsonSerializer.Deserialize<CryptoCompareResponse>(responseBody);
+
+            // Возвращаем курс биткоина
+            txtPrice.Text = rateData.USD.ToString();
         }
-
-
     }
-    // Классы для десериализации JSON
-    public class CryptoPrice
+    // Класс для десериализации JSON-ответа
+    public class CryptoCompareResponse
     {
-        public decimal Usd { get; set; }
-    }
-
-    public class CryptoResponse
-    {
-        public CryptoPrice Bitcoin { get; set; }
+        public decimal USD { get; set; }
     }
 }
 
-/*
-Разберём строку:
-return response?.Bitcoin?.Usd ?? 0m;
-
-response?
-Оператор ?. — это null-условный (или безопасный) оператор доступа.
-Если response null, то всё выражение завершается и возвращает null.
-
-response?.Bitcoin?
-Если response не null, то программа идёт дальше и проверяет response.Bitcoin.
-Если Bitcoin == null, то выражение тоже завершается и возвращает null.
-r
-esponse?.Bitcoin?.Usd
-Если response и Bitcoin не null, то возвращается значение Usd (decimal).
-
-?? 0m
-Оператор ?? — это оператор "если null".
-Если всё выражение слева равно null, то вместо null подставляется 0m (0 типа decimal).
- */
