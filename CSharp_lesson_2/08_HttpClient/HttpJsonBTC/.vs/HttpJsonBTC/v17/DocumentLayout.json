@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\RepoColledge\\education\\CSharp_lesson_2\\08_HttpClient\\HttpJsonBTC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B8683EAE-CAF3-465C-8B75-4E2A95A55DFC}|HttpJsonBTC\\HttpJsonBTC.csproj|d:\\repocolledge\\education\\csharp_lesson_2\\08_httpclient\\httpjsonbtc\\httpjsonbtc\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8683EAE-CAF3-465C-8B75-4E2A95A55DFC}|HttpJsonBTC\\HttpJsonBTC.csproj|solutionrelative:httpjsonbtc\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B8683EAE-CAF3-465C-8B75-4E2A95A55DFC}|HttpJsonBTC\\HttpJsonBTC.csproj|D:\\RepoColledge\\education\\CSharp_lesson_2\\08_HttpClient\\HttpJsonBTC\\httpjsonbtc\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8683EAE-CAF3-465C-8B75-4E2A95A55DFC}|HttpJsonBTC\\HttpJsonBTC.csproj|solutionrelative:httpjsonbtc\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8683EAE-CAF3-465C-8B75-4E2A95A55DFC}|HttpJsonBTC\\HttpJsonBTC.csproj|d:\\repocolledge\\education\\csharp_lesson_2\\08_httpclient\\httpjsonbtc\\httpjsonbtc\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B8683EAE-CAF3-465C-8B75-4E2A95A55DFC}|HttpJsonBTC\\HttpJsonBTC.csproj|solutionrelative:httpjsonbtc\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B8683EAE-CAF3-465C-8B75-4E2A95A55DFC}|HttpJsonBTC\\HttpJsonBTC.csproj|d:\\repocolledge\\education\\csharp_lesson_2\\08_httpclient\\httpjsonbtc\\httpjsonbtc\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8683EAE-CAF3-465C-8B75-4E2A95A55DFC}|HttpJsonBTC\\HttpJsonBTC.csproj|solutionrelative:httpjsonbtc\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,11 +18,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\RepoColledge\\education\\CSharp_lesson_2\\08_HttpClient\\HttpJsonBTC\\HttpJsonBTC\\Form1.cs",
               "RelativeDocumentMoniker": "HttpJsonBTC\\Form1.cs",
@@ -35,7 +35,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "DocumentMoniker": "D:\\RepoColledge\\education\\CSharp_lesson_2\\08_HttpClient\\HttpJsonBTC\\HttpJsonBTC\\Form1.cs",
               "RelativeDocumentMoniker": "HttpJsonBTC\\Form1.cs",
