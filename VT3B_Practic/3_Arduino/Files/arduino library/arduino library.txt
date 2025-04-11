@@ -1,0 +1,2 @@
+распаковать  файлы и переместить в  папку 
+C:\Program Files (x86)\Labcenter Electronics\Proteus 8 Professional\DATA\LIBRARY
